@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar.jsx";
 import { Problem} from "./pages/Problems.jsx";
 import {ProblemDetails} from "./pages/ProblemDetails.jsx";
+import { Profile } from "./pages/Profile.jsx";
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/problems" element={<Problem />} />
           <Route path="/:id" element={<ProblemDetails />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Router>
     </>

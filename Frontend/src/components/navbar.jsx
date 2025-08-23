@@ -23,8 +23,8 @@ const Navbar = () => {
             <Link to="/logout" className="hover:text-gray-300">
               Logout
             </Link>
-            <Link to="/contests" className="hover:text-gray-300">
-              Contests
+            <Link to="/profile" className="hover:text-gray-300">
+              Profile
             </Link>
           </div>
 

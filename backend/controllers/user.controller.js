@@ -29,7 +29,8 @@ const loginUser = async (req, res) => {
   // 4. Set cookies
   res.cookie("accessToken", accessToken, {
     httpOnly: true, // Prevent JS access
-    secure: true,
+    // secure: true,
+    secure:true, // use true in production with HTTPS
     sameSite: "none",
     maxAge: 15 * 60 * 1000, // 15 minutes
   });
@@ -37,6 +38,7 @@ const loginUser = async (req, res) => {
   res.cookie("refreshToken", refreshToken, {
     httpOnly: true,
     secure: true, // change only in dev
+    // secure:process.env.NODE_ENV === "production",
     sameSite: "none",
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   });
@@ -90,19 +92,19 @@ const logoutUser = async (req, res) => {
     // Clear cookies
     res.clearCookie("accessToken", {
       httpOnly: true,
-      secure: false, // true in production with HTTPS
+      secure: true, // true in production with HTTPS
       sameSite: "None",
     });
     res.clearCookie("refreshToken", {
       httpOnly: true,
-      secure: false,
+      secure: true,
       sameSite: "None",
     });
 
     // Optional: If you still want to remove tokens from DB (if user is logged in)
     if (req.user?.id) {
       await User.findByIdAndUpdate(req.user.id, {
-        $unset: { accessToken: "", refreshToken: "" },
+        $unset: { accessToken: "",refreshToken: "",},
       });
     }
 
@@ -129,30 +131,10 @@ const getUserProfile = async (req, res) => {
 };
 
 // Update Score & Problems Solved
-const updateUserProgress = async (req, res) => {
-  try {
-    const { problemId, score } = req.body;
 
-    const user = await User.findById(req.user.id);
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    if (!user.problemsSolved.includes(problemId)) {
-      user.problemsSolved.push(problemId);
-      user.totalScore += score;
-      await user.save();
-    }
-
-    res.json({ message: "User progress updated" });
-  } catch (err) {
-    res.status(500).json({ message: "Server Error", error: err.message });
-  }
-};
 export {
   registerUser,
   loginUser,
   getUserProfile,
-  updateUserProgress,
   logoutUser,
 };
