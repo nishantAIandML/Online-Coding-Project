@@ -1,5 +1,5 @@
 FROM node:24-alpine
-WORKDIR /app
+WORKDIR /codingproject
 RUN apk update && apk add --no-cache python3 make g++ gcc
 COPY . . 
 RUN npm i

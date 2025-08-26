@@ -57,7 +57,7 @@ const Logout = ({ setUser }) => {
   useEffect(() => {
     const logoutUser = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/v1/users/logout", {
+        const res = await fetch("http://3.110.101.117:3000/api/v1/users/logout", {
           method: "GET",
           credentials: "include", // Send cookies
         });

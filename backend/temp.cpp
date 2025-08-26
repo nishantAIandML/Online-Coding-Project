@@ -1,8 +1,9 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 int main(){
-    int a,b;
-    cin>>a>>b;
-    cout<<a+b;
-    return 0;
+    string s;
+    cin>>s;
+    stack<char>st;
+    int n=s.length();
+    cout<<true;
 }
