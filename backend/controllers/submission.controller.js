@@ -43,7 +43,7 @@ export const createSubmission = async (req, res) => {
       try {
         // Example: sending to an external compiler API
         const response = await axios.post(
-          "https://nishantcodingproject.onrender.com/api/v1/submissions/compile",
+          "http://localhost:3000/api/v1/submissions/compile",
           {
             language,
             code,
