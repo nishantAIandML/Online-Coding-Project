@@ -7,7 +7,7 @@ const Profile = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch(`${process.env.AWS_URL}/api/v1/users/profile`, {
+      const res = await fetch(`${import.meta.env.AWS_URL}/api/v1/users/profile`, {
         method: "GET", // ✅ Use GET because backend expects GET
         credentials: "include", // include cookies if needed
         headers: {

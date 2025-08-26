@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("${process.env.AWS_URL}/api/v1/users/me", {
+        const res = await fetch(`${import.meta.env.AWS_URL}/api/v1/users/me`, {
           credentials: "include", // send cookies
         });
         if (res.ok) {
