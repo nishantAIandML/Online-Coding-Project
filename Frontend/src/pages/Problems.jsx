@@ -9,7 +9,7 @@ const Problem = () => {
   useEffect(() => {
     const fetchProblems = async () => {
       try {
-        const response = await fetch(`${import.meta.env.AWS_URL}/api/v1/problems/`);
+        const response = await fetch(`${import.meta.env.VITE_AWS_URL}/api/v1/problems/`);
         const data = await response.json();
 
         if (response.ok) {

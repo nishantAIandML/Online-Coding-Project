@@ -103,7 +103,7 @@ const Login = () => {
     setMessage("");
 
     try {
-      const res = await fetch(`${import.meta.env.AWS_URL}/api/v1/users/login`, {
+      const res = await fetch(`${import.meta.env.VITE_AWS_URL}/api/v1/users/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // ✅ send and store cookies automatically

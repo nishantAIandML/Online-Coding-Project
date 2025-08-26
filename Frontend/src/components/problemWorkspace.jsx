@@ -236,7 +236,7 @@ export const ProblemWorkspace = () => {
   useEffect(() => {
     const fetchProblems = async () => {
       try {
-        const res = await fetch(`${import.meta.env.AWS_URL}/api/v1/problems`, {
+        const res = await fetch(`${import.meta.env.VITE_AWS_URL}/api/v1/problems`, {
           credentials: "include",
         });
         const data = await res.json();
@@ -255,7 +255,7 @@ export const ProblemWorkspace = () => {
     setOutput("Running code...");
     try {
       const res = await fetch(
-        `${import.meta.env.AWS_URL}/api/v1/submissions/compile`,
+        `${import.meta.env.VITE_AWS_URL}/api/v1/submissions/compile`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -278,7 +278,7 @@ export const ProblemWorkspace = () => {
     setLoading(true);
     setOutput("Submitting...");
     try {
-      const res = await fetch(`${import.meta.env.AWS_URL}/api/v1/submissions`, {
+      const res = await fetch(`${import.meta.env.VITE_AWS_URL}/api/v1/submissions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -305,7 +305,7 @@ export const ProblemWorkspace = () => {
     setOutput("Reviewing code with AI...");
     try {
       // Example: Replace with your AI review API
-      const res = await fetch(`${import.meta.env.AWS_URL}/api/v1/submissions/ai-review`, {
+      const res = await fetch(`${import.meta.env.VITE_AWS_URL}/api/v1/submissions/ai-review`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

@@ -57,7 +57,7 @@ const Logout = ({ setUser }) => {
   useEffect(() => {
     const logoutUser = async () => {
       try {
-        const res = await fetch(`${import.meta.env.AWS_URL}/api/v1/users/logout`, {
+        const res = await fetch(`${import.meta.env.VITE_AWS_URL}/api/v1/users/logout`, {
           method: "GET",
           credentials: "include", // Send cookies
         });
