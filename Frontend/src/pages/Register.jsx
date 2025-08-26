@@ -17,7 +17,7 @@ const Register = () => {
     setMessage("");
 
     try {
-      const res = await fetch("http://3.110.101.117:3000/api/v1/users/register", {
+      const res = await fetch(`${process.env.AWS_URL}/api/v1/users/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

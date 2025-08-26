@@ -10,7 +10,7 @@ const ProblemDetails = () => {
   useEffect(() => {
     const fetchProblem = async () => {
       try {
-        const res = await fetch("http://3.110.101.117:3000/api/v1/problems/${id}");
+        const res = await fetch(`${process.env.AWS_URL}/api/v1/problems/${id}`);
         const data = await res.json();
         if (res.ok) {
           setProblem(data.problem);
